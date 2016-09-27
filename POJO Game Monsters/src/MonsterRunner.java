@@ -24,21 +24,19 @@ public class MonsterRunner
 				Scanner userInputChoice= new Scanner(System.in);
 				int choice = userInputChoice.nextInt();	
 				int choice2 = choice-1;
-				cards.get(choice2).setLives(cards.get(choice2).getLives()-1);
-				System.out.println("The "+cards.get(choice2).getName()+" must lose a life every time it plays. Now it has "+cards.get(choice2).getLives());
 				int randomNumber=(int)(Math.random()*cards.size()-1);
-				System.out.println("Ok, your monster the "+cards.get(choice2).getName()+" will battle the "+cards.get(randomNumber).getName());
+				System.out.println("Ok, your monster The "+cards.get(choice2).getName()+" will battle the "+cards.get(randomNumber).getName());
 				System.out.println("The "+cards.get(choice2).getName()+" has a power of "+cards.get(choice2).getPower());
 				System.out.println("The "+cards.get(randomNumber).getName()+" has a power of "+cards.get(randomNumber).getPower());
 				if(cards.get(randomNumber).getPower()>cards.get(choice2).getPower())
 					{
 						stillPlaying=false;
-						System.out.println("Sorry you lost because the "+cards.get(randomNumber).getName()+" had more power and defeated your monster");
+						System.out.println("Sorry you lost because The "+cards.get(randomNumber).getName()+" had more power and defeated your monster");
 						
 					}
 				if(cards.get(randomNumber).getPower()<cards.get(choice2).getPower())
 					{
-						System.out.println("You won because "+cards.get(randomNumber).getName()+" had more power and defeated the "+cards.get(choice2).getName());
+						System.out.println("You won because The "+cards.get(randomNumber).getName()+" had more power and defeated The "+cards.get(choice2).getName());
 					}
 				if(cards.get(randomNumber).getPower()==cards.get(choice2).getPower())
 					{
