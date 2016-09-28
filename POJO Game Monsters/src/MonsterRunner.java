@@ -19,11 +19,14 @@ public class MonsterRunner
 		Scanner userInput= new Scanner(System.in);
 		String decision = userInput.nextLine();
 		if(decision.equals("yes"))
-			{			
+			{	
+				System.out.println("Lives: ");
 				Scanner userInput1= new Scanner(System.in);
 				int monsterLives = userInput1.nextInt();	
+				System.out.println("Power: ");
 				Scanner userInputChoice2= new Scanner(System.in);
 				int monsterPower = userInputChoice2.nextInt();	
+				System.out.println("Name: ");
 				Scanner userInput3= new Scanner(System.in);
 				String monsterName = userInput3.nextLine();
 				cards.add(new Monster(monsterLives, monsterPower, monsterName));
@@ -49,6 +52,7 @@ public class MonsterRunner
 				System.out.println("Ok, your monster The "+cards.get(choice2).getName()+" will battle the "+cards.get(randomNumber).getName());
 				System.out.println("The "+cards.get(choice2).getName()+" has a power of "+cards.get(choice2).getPower());
 				System.out.println("The "+cards.get(randomNumber).getName()+" has a power of "+cards.get(randomNumber).getPower());
+				cards.get(choice2).setLives((cards.get(choice2).getLives())-1);
 				if(cards.get(randomNumber).getPower()>cards.get(choice2).getPower())
 					{
 						stillPlaying=false;
@@ -63,7 +67,7 @@ public class MonsterRunner
 					{
 						System.out.println("It was a tie! You can still move on to the next round.");
 					}
-				if(cards.get(choice2).getLives()<=a)
+				if(cards.get(choice2).getLives()<=0)
 					{
 						System.out.println("You used up all of your lives. Game over.");
 						stillPlaying= false;
@@ -73,6 +77,8 @@ public class MonsterRunner
 						System.out.println("Round "+a);		
 		//				roster.get(roster.size()-1).setAge(roster.get(roster.size-1)+1)
 					}
+				System.out.println(cards.get(choice2).getName()+" lives: "+cards.get(choice2).getLives());
+				System.out.println(cards.get(randomNumber).getName()+" lives: "+cards.get(randomNumber).getLives());
 				
 			}
 		}
