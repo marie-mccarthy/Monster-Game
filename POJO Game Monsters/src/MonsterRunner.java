@@ -6,7 +6,7 @@ public class MonsterRunner
 	static ArrayList <Monster> cards = new ArrayList <Monster>();
 	public static void main(String[] args)
 		{
-		int a = 1;
+		int a = 0;
 		boolean stillPlaying = true;
 		cards.add(new Monster(4, 7, "Dragon"));
 		cards.add(new Monster(2, 8, "Giant Spider"));
@@ -15,15 +15,36 @@ public class MonsterRunner
 			{
 				System.out.println("Monster "+(i+1)+" is a "+cards.get(i).getName()+" and has a power of "+cards.get(i).getPower()+". Also it has "+cards.get(i).getLives()+" lives.");
 			}
-		System.out.println("Round 1");
-		while(stillPlaying)
+		System.out.println("Enter 'yes' if you would like to add another monster");
+		Scanner userInput= new Scanner(System.in);
+		String decision = userInput.nextLine();
+		if(decision.equals("yes"))
+			{			
+				Scanner userInput1= new Scanner(System.in);
+				int monsterLives = userInput1.nextInt();	
+				Scanner userInputChoice2= new Scanner(System.in);
+				int monsterPower = userInputChoice2.nextInt();	
+				Scanner userInput3= new Scanner(System.in);
+				String monsterName = userInput3.nextLine();
+				cards.add(new Monster(monsterLives, monsterPower, monsterName));
+			}
+		else
 			{
-				
+				System.out.println("Ok. No new monsters will be added. ");
+			}
+		for(int i=0;i<cards.size();i++)
+			{
+				System.out.println("Monster "+(i+1)+" is a "+cards.get(i).getName()+" and has a power of "+cards.get(i).getPower()+". Also it has "+cards.get(i).getLives()+" lives.");
+			}
+		System.out.println("Round 1");			
+		while(stillPlaying)
+			{				
 				a++;
 				System.out.println("Which monster would you like to choose?");
 				Scanner userInputChoice= new Scanner(System.in);
 				int choice = userInputChoice.nextInt();	
 				int choice2 = choice-1;
+				
 				int randomNumber=(int)(Math.random()*cards.size()-1);
 				System.out.println("Ok, your monster The "+cards.get(choice2).getName()+" will battle the "+cards.get(randomNumber).getName());
 				System.out.println("The "+cards.get(choice2).getName()+" has a power of "+cards.get(choice2).getPower());
@@ -49,7 +70,8 @@ public class MonsterRunner
 					}
 				else
 					{
-						System.out.println("Round "+a);						
+						System.out.println("Round "+a);		
+		//				roster.get(roster.size()-1).setAge(roster.get(roster.size-1)+1)
 					}
 				
 			}

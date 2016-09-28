@@ -11,7 +11,7 @@ public class Monster
 		}	
 	public int getLives()
 		{
-		return power;
+		return lives;
 		}
 	public void setLives(int lives)
 		{
